@@ -4,7 +4,7 @@
  * keeps nodes sorted based on priority
  * Follows the pattern of the author's LeftistHeap
  * @author Danny Clyde
- * @param <AnyType>
+ * @param <AnyType> type of the elements of the nodes in the heap
  */
 public class SkewHeap<AnyType extends Comparable<? super AnyType>> {
     private SkewNode<AnyType> root;    // root
@@ -16,8 +16,10 @@ public class SkewHeap<AnyType extends Comparable<? super AnyType>> {
     }
 
     /**
-     * Internal method to merge two roots.
-     * Deals with deviant cases and calls recursive merge1.
+     * Merges two nodes
+     * part one of two parts of merging
+     * orders the two nodes correctly to prepare for the second
+     * part of the merge
      */
     private SkewNode<AnyType> mergePartOne( SkewNode<AnyType> a, SkewNode<AnyType> b ) {
         if( a == null ) return b;
@@ -31,8 +33,8 @@ public class SkewHeap<AnyType extends Comparable<? super AnyType>> {
     }
 
     /**
-     * Internal method to merge two roots.
-     * Assumes trees are not empty, and h1's root contains smallest item.
+     * Internal merge method
+     * second part of the merge process, two node roots passed in sorted order
      */
     private SkewNode<AnyType> mergePartTwo( SkewNode<AnyType> a, SkewNode<AnyType> b ) {
         if( a.left == null ) {
@@ -40,6 +42,7 @@ public class SkewHeap<AnyType extends Comparable<? super AnyType>> {
         }
         else {
             a.right = mergePartOne( a.right, b );
+            // always swap children without checking null path lengths
             swapChildren( a );
         }
         return a;
@@ -91,9 +94,9 @@ public class SkewHeap<AnyType extends Comparable<? super AnyType>> {
 
 
     private static class SkewNode<AnyType> {
-        AnyType              element;      // The data in the node
-        SkewNode<AnyType> left;         // Left child
-        SkewNode<AnyType> right;        // Right child
+        AnyType element;      // The data in the node
+        SkewNode<AnyType> left;   // Left child
+        SkewNode<AnyType> right;  // Right child
 
         SkewNode( AnyType theElement ) {
             this( theElement, null, null );

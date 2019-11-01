@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88008065-b6c6-4f14-921f-65396c90e21d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SkewHeap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AutoCorrect/ReadCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AutoCorrect/ReadCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeftistHeap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReadCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SkewHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SkewHeap.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
