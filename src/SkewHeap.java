@@ -24,7 +24,7 @@ public class SkewHeap<AnyType extends Comparable<? super AnyType>> {
     private SkewNode<AnyType> mergePartOne( SkewNode<AnyType> a, SkewNode<AnyType> b ) {
         if( a == null ) return b;
         if( b == null ) return a;
-        if( a.element.compareTo( b.element ) < 0 ) {
+        if( a.element.compareTo( b.element ) > 0 ) {
             return mergePartTwo( a, b );
         }
         else {

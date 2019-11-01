@@ -35,7 +35,8 @@ public class ReadCode {
                 if (heap.isEmpty()) {
                     break;
                 }
-                System.out.println(heap.deleteMax().word);
+                Term max = heap.deleteMax();
+                System.out.println(max.word);
             }
 
             fileReader.close();
