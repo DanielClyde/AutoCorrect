@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 
@@ -23,11 +24,17 @@ public class ReadCode {
             System.out.println("Enter the number of words you would like: ");
             int num = input.nextInt();
 
-            // insert words that start with prefix into heap
-            for (Term t : terms) {
-                if (t.word.length() >= prefix.length() && t.word.startsWith(prefix)) {
-                    heap.insert(t);
-                }
+            int index = binarySearch(prefix, terms, 0, terms.length - 1);
+
+            int startIndex = index;
+            while (terms[startIndex].word.startsWith(prefix)) {
+                heap.insert(terms[startIndex]);
+                startIndex--;
+            }
+            int endIndex = index + 1;
+            while (terms[endIndex].word.startsWith(prefix)) {
+                heap.insert(terms[endIndex]);
+                endIndex++;
             }
 
             // remove now sorted words from heap
@@ -42,6 +49,22 @@ public class ReadCode {
             fileReader.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static int binarySearch(String prefix, Term[] terms, int startIndex, int endIndex) {
+        if (startIndex > endIndex) return -1;
+
+        int mid = startIndex + ((endIndex - startIndex) / 2);
+
+        if (terms[mid].word.startsWith(prefix)) return mid;
+
+        int prefixLength = prefix.length();
+
+        if (terms[mid].word.substring(0, prefixLength - 1).compareTo(prefix) > 0) {
+            return binarySearch(prefix, terms, startIndex, mid - 1);
+        } else {
+            return binarySearch(prefix, terms, mid + 1, endIndex);
         }
     }
 
